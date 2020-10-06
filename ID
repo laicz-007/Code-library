@@ -1,0 +1,174 @@
+#include <bits/stdc++.h>
+#include <windows.h>
+/*
+
+TIPS FROM THE AUTHOR OF THIS PROGRAM
+If you want to optimize this program, please pay attention to a few points.
+1.Don't forget to reset the hold area (Sus_xxx) after using it.
+2.Talk to me! My email address is 2929624714@qq.com.
+*/
+
+//Project Process
+/*
+
+2020 October 1st - 2nd: have a idea,Information storage completed
+2020 October 3rd - 4th: The main body has been completed, except for data storage and function calls.
+2020 October 6th: Unfinished (maybe)
+
+*/
+using namespace std;
+long long Occupied_space = 0;
+string act_code[3] = {"28JD2","W82N3","A192P"};
+string user_act = "";
+bool use = 0;
+bool act_state = 0;
+int pupil_num = 0;
+int Sus_int;//Double precision delay zone
+double Sus_double = 0;//And so on
+string Sus_string = "";//too / ditto
+bool Sus_bool;
+
+struct unit{
+	double speak_mark;
+	double math_mark;
+	double foreign_mark;
+};
+struct healthy{
+	double temperature;
+	bool tosse;
+	bool contact;
+};
+struct id{
+	int number;
+	int classes;
+	int grade;
+	string gender;//0 : boy, 1 : girl;
+	string survival;//0 :dead, 1 : live 
+	string name;
+	string from;
+	string id_num;
+	string Mother_phone;
+	string Father_phone;
+	string Emergency_phone_1;
+	string Emergency_phone_2;
+	string Emergency_phone_1_name;
+	string Emergency_phone_2_name;
+};
+struct student{
+	unit student_mark[8];
+	healthy student_virus;
+	id student_id;
+};
+
+student stu[10];
+
+void new_pupil_report();
+void welcome();
+void act();
+void find();
+void print();
+void loading();
+
+void loading(string character,int Print_once,int main_cycles,long long wait){
+	for(int i = 0;i < main_cycles;i++){
+		for(int j = 0;j < Print_once;j++){
+			cout<<character<<endl;
+			Sleep(wait);
+		}
+		system("cls");
+	}
+}
+void print_id(long long id_stu){
+		cout<<"Name:"<<stu[id_stu].student_id.name<<endl;
+		cout<<"Grade:"<<stu[id_stu].student_id.grade<<endl;
+		cout<<"Class:"<<stu[id_stu].student_id.classes<<endl;
+		cout<<"Seat:"<<stu[id_stu].student_id.number<<endl;
+		cout<<"Presence state:"<<stu[id_stu].student_id.survival<<endl;
+		cout<<"Gender:"<<stu[id_stu].student_id.gender<<endl;
+		cout<<"Country of Citizenship"<<stu[id_stu].student_id.from<<endl;
+		cout<<"Mather's phone number:"<<stu[id_stu].student_id.Mother_phone<<endl;
+		cout<<"Father's phone number:"<<stu[id_stu].student_id.Father_phone<<endl;
+		cout<<"Emergency contact 1:"<<stu[id_stu].student_id.Emergency_phone_1_name<<endl;
+		cout<<"Emergency contact 2:"<<stu[id_stu].student_id.Emergency_phone_2_name<<endl;
+		cout<<"The above is ";
+		
+		if(stu[id_stu].student_id.name[stu[id_stu].student_id.name.length()-1] == 's'){
+			cout<<stu[id_stu].student_id.name<<"'";
+		}else{
+			cout<<stu[id_stu].student_id.name<<"'s";
+		}
+		cout<<"personal information, please refer to."<<endl;
+		Sus_bool = 1;
+		return;
+		if(Sus_bool = 0){
+			cout<<"Oops! The student's information was not found, the student statistics management system will give you some suggestions."<<endl;
+			cout<<"1.Pay attention to spelling."<<endl;
+			cout<<"Good luck!!!"<<endl;
+		}
+		Sus_bool = 0;
+}
+void new_pupil_report(){
+	cout<<"Welcome to the new student recruitment system. Next, we will print out the entry notes."<<endl;
+	Sleep(500);
+	system("cls");
+	loading(".",3,2,200);
+	
+	
+	
+	
+	
+	
+}
+void mark(){
+	
+}
+void welcome(){//Finished
+	cout<<"Welcome to use student statistics and management system."<<endl;
+	Sleep(750);
+	cout<<"Please input activation code:";
+	if(use = 0){
+		act();
+	}
+}
+void act(){//Finished
+	cout<<"Please input activation code:";
+	cin>>user_act;
+	for(int i = 0;i <= sizeof(act_code);i++){
+		if(user_act == act_code[i]){
+			act_state = 1;
+			break;
+		}
+	}
+	loading(".",3,5,350);
+	if(act_state = 1){
+		cout<<"Congratulations, the system has been activated successfully, you can use the student management system."<<endl;
+	}else{
+		cout<<"Your activation code is wrong. Please pay attention to the following when activating."<<endl;
+		cout<<"1.Pay attention to spelling."<<endl;
+		cout<<"2.Send an email to 2929624714@qq.com We will send you the activation code."<<endl;
+		cout<<"Good luck!!!"<<endl;
+		exit(0);
+	}
+}
+void find(){//Finished
+	cout<<"Welcome to use, please input student name (case sensitive)"<<endl;
+	cin>>Sus_string;
+	Sus_bool = 0;
+	for(int i = 0;i <= sizeof(stu);i++){
+		if(stu[i].student_id.name == Sus_string){
+			cout<<"Find the student's personal information, and then the personal information will be output."<<endl;
+			loading(".",3,1,200);
+			system("cls");
+			print_id(i);
+			break;
+		}
+	}
+
+}
+int main(){//Construction started on October 4th and is expected to be completed on October 5th or 6th
+	while(0){
+		
+	}
+	
+	
+}
